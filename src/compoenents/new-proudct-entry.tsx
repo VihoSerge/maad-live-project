@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 interface NewProductEntryProps {
   onNew: (productCount: number) => void;
