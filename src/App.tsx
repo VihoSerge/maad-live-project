@@ -1,7 +1,6 @@
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 import NewProductEntry from "./compoenents/new-proudct-entry";
 
-const MAX_PRODUCTS = 5;
 const TIME = 1000;
 const PRODUCTS_PER_TIME = 1;
 
@@ -38,22 +37,9 @@ const findCheckoutWithLessProducts = (checkout: any[]) => {
   }
 
   return index;
-  // checkout.sort((a, b) => {
-  //   if (a.products < b.products) {
-  //     return -1;
-  //   }
-  //   if (a.products > b.products) {
-  //     return 1;
-  //   }
-  //   // a must be equal to b
-  //   return 0;
-  // }); // return checkout.findIndex((item) => !item.products);
-
-  // return checkout[]
 };
 
 function App() {
-  const [clientQueues, setClientQueues] = useState<any[]>([]);
   const [checkout, setCheckout] = useState(defaultData);
 
   useEffect(() => {
@@ -75,11 +61,6 @@ function App() {
   }, []);
 
   const handleNew = (count: number) => {
-    setClientQueues((prev) => [
-      ...prev,
-      { id: prev.length + 1, products: count },
-    ]);
-
     const emptyCheckoutIndex = findCheckoutWithLessProducts(checkout);
 
     const prevData = [...checkout];
